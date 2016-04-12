@@ -1,4 +1,34 @@
 1. Generate a task model
 
 rails generate model task title:string description:text company:string url:string
+& then
+rake db:migrate
+
+2. Now generate task controller
+
+rails generate controller tasks
+
+3. In routes, 
+resources :tasks
+(rake routes to check all the routes.)
+Add a root route (copy controller#action from rake routes)
+root 'tasks#index'
+
+4. Define a index action in the tasks controller
+def index
+end
+
+5. Add the bootstrap gem to gemfile
+gem 'bootstrap-sass', '~> 3.2.0.2'
+then,
+bundle install
+
+6. Install the bootstrap
+rename application.css to application.css.scss and then paste
+@import "bootstrap-sprockets";
+@import "bootstrap";
+finally in the application.js
+include,
+//= require bootstrap-sprockets
+(below require jquery)
 
