@@ -1,28 +1,34 @@
-== README
+1. Generate a task model
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rails generate model task title:string description:text company:string url:string
+& then
+rake db:migrate
 
-Things you may want to cover:
+2. Now generate task controller
 
-* Ruby version
+rails generate controller tasks
 
-* System dependencies
+3. In routes, 
+resources :tasks
+(rake routes to check all the routes.)
+Add a root route (copy controller#action from rake routes)
+root 'tasks#index'
 
-* Configuration
+4. Define a index action in the tasks controller
+def index
+end
 
-* Database creation
+5. Add the bootstrap gem to gemfile
+gem 'bootstrap-sass', '~> 3.2.0.2'
+then,
+bundle install
 
-* Database initialization
+6. Install the bootstrap
+rename application.css to application.css.scss and then paste
+@import "bootstrap-sprockets";
+@import "bootstrap";
+finally in the application.js
+include,
+//= require bootstrap-sprockets
+(below require jquery)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
