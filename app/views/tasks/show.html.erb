@@ -5,7 +5,7 @@
     <p><%= @task.company %></p>
     <p><%= @task.category.name %></p>
     <button class="btn btn-default"> 
-      <%= link_to 'Complete task', @task.url %>
+      <%= link_to 'Complete task', @task.url, target: '_blank' %>
     </button>
   </div>
 
